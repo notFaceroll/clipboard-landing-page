@@ -3,12 +3,15 @@
 :root {
   /* ## Colors */
   /* ### Primary */
+  --color-primary-strong-h: hsl(172, 73%, 68%);
   --color-primary-strong: hsl(171, 66%, 44%);
+  --color-primary-light-h: hsl(233, 86%, 78%);
   --color-primary-light: hsl(233, 100%, 69%);
 
   /* ### Neutral */
   --color-neutral-dark-blue: hsl(210, 10%, 33%);
   --color-neutral-blue: hsl(201, 11%, 66%);
+  --color-whitish: rgb(255, 239, 239);
 
   /* ### Typography */
   --fw-regular: 400;
@@ -45,6 +48,8 @@ img {
 }
 
 .page-wrapper {
+  display: flex;
+  flex-direction: column;
   padding: 0 2rem;
   text-align: center;
   gap: 3rem;
@@ -57,6 +62,8 @@ img {
 
 .app-header {
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-img {
@@ -82,6 +89,8 @@ p {
 .description {
   color: var(--color-neutral-blue);
   font-weight: var(--fw-regular);
+  max-width: 700px;
+  margin: 0 auto 2rem;
 }
 
 .btn-box {
@@ -102,8 +111,15 @@ p {
   background-color: var(--color-primary-strong);
 }
 
+.btn-ios:hover {
+  background-color: var(--color-primary-strong-h);
+}
+
 .btn-mac {
   background-color: var(--color-primary-light);
+}
+.btn-mac:hover {
+  background-color: var(--color-primary-light-h);
 }
 
 .main-content {
@@ -168,14 +184,25 @@ p {
 .app-footer {
   max-width: 100%;
   min-height: 20vh;
+  background-color: var(--color-whitish);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-img {
+  width: 50px;
+  height: 50px;
+  padding: 2rem;
 }
 
 .footer-nav {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
   margin-bottom: 3rem;
+  flex: 1;
 }
 
 .footer-item {
@@ -193,10 +220,42 @@ p {
   color: var(--color-neutral-dark-blue);
 }
 
+.footer-link:hover {
+  color: var(--color-primary-strong);
+}
+
+.socials {
+  display: flex;
+}
+
+.socials__box {
+  margin: 1rem 1.5rem;
+}
+
+.socials__icon {
+  fill: '#4C545C';
+}
+
+.socials__icon:hover {
+  cursor: pointer;
+  fill: var(--color-primary-strong);
+}
+
 @media screen and (min-width: 375px) {
   body {
     background-image: url(./images/bg-header-desktop.png);
     background-size: contain;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .app-footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .footer-nav {
+    margin-bottom: 0;
   }
 }
 
@@ -219,5 +278,9 @@ p {
   .snippets__content-text {
     text-align: start;
     margin-left: 2rem;
+  }
+
+  .img-offscreen {
+    transform: translateX(-75px);
   }
 }
